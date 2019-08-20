@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace:该xml的唯一标识 -->
+<mapper namespace="org.lanqiao.mapper.StudentMapper">
+
+<!--增删改查  id对应mapper接口方法名 -->
+	<select id="queryStudentByStuNo" resultType="org.lanqiao.entity.Student" parameterType="int">
+		select * from student where stuNo = #{stuNo}
+	</select>
+	
+	<insert id="addStudent" parameterType="org.lanqiao.entity.Student">
+		insert into student(stuNo,stuName,stuAge) values(#{stuNo},#{stuName},#{stuAge}) 
+	</insert>
+	
+	<delete id="deleteStudentByNo" parameterType="int">
+		delete from student where stuNo = #{stuNo} 
+	</delete>
+	
+	<update id="updateStudentByNo"  parameterType="org.lanqiao.entity.Student">
+		update student set stuName = #{stuName} ,stuAge = #{stuAge} where stuNo = #{stuNo}
+	</update>
+</mapper>
